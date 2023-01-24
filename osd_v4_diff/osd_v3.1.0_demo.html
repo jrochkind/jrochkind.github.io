@@ -1,0 +1,52 @@
+<html>
+
+<head>
+
+  <!-- openseadragon -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.1.0/openseadragon.min.js"></script>
+
+  <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+
+  <style>
+    .my-content {
+      background-color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>OpenSeadragon 3.1.0</h1>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" id="openButton">
+    open hidden full-screen div
+  </button>
+
+    <div class="my-content" id="myContent" style="display: none">
+      <div id="seadragon-viewer" style="background-color: white;"></div>
+    </div>
+  </div>
+
+
+
+  <script>
+
+    var viewer = OpenSeadragon({
+      id: "seadragon-viewer",
+      prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.1.0/images/"
+    });
+
+    viewer.open("https://scihist-digicoll-production-dzi.s3.amazonaws.com/298f50cc-c8e3-47ec-85e7-213823794363/md5_5d56e2d8afb95baa5d68959e17f15a29.dzi");
+
+    $("#openButton").on("click", function(e) {
+      $("#myContent").show();
+    });
+  </script>
+
+
+</body>
+</html>
